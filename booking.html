@@ -1,0 +1,41 @@
+<html>
+    
+    <title> Book an appointment</title>
+    <body>
+        <h1 style="text-align: center;color: brown;margin-top: 50px;">Appointment Booking</h1>
+        <br>
+        <h3 style = "margin-left: 100px;">Please book a Slot:</h3> 
+        <br><br>    
+        <div id= "more" style="margin-top: 10px;">
+            
+        </div>
+
+
+        <script>
+            var date = new Date();
+            var i;
+            var dates =[]    
+            var time = [900,1000,1100,1200,1400,1500,1600];
+            for (i = 1; i <=7; i++) {
+                date.setDate(date.getDate() + 1); + "<br>";
+                dates.push(date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear());
+            }
+            for (i = 0; i < 7; i++){
+                
+                document.getElementById("more").innerHTML += `<button onclick = selecttime(${i})>` + dates[i] + "</button>";
+
+            }
+            function selecttime(bookDate) {
+                
+                for (i = 0; i < 7; i++){
+                    document.getElementById("more").innerHTML += `<button onclick =myfunction(${bookDate},${i})>` + time[i] + "</button>";
+                }
+            }
+            function myfunction(bookDate,bookTime)
+            {
+                
+            }
+        </script>
+        
+    </body>
+</html>
